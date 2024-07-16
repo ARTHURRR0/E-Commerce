@@ -1,34 +1,37 @@
 import React from "react";
 import { MdEmail } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
-import { CiShoppingCart } from "react-icons/ci";
-import { IoMdSearch } from "react-icons/io";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { CiSearch } from "react-icons/ci";
 
 export default function App() {
   return (
     <>
-      <header className="text-white bg-[#7E33E0] ">
-        <nav className="p-3 flex justify-between width-full text-2xl">
-          <div className="flex items-center gap-2">
-            <MdEmail className="" />
-            <span>123@gmail.com</span>
+{/* 1st HEADER */}
+
+      <header className="bg-[#7E33E0] text-white text-2xl">
+        <nav className="container py-3 flex justify-between">
+          <div className="flex gap-4 items-center">
+            <MdEmail />
+            <span>123@email.com</span>
+            <FaPhoneAlt />
+            <span>977777283</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex gap-4 items-center">
             <span>Login</span>
             <FaUser />
-            <CiShoppingCart className="text-4xl" />
+            <AiOutlineShoppingCart />
           </div>
         </nav>
       </header>
 
-      <header className=" ">
-        <nav className="text-2xl p-4 flex items-center gap-4 w-full border-red-900 border-2">
-
+{/* 2nd HEADER */}
+      <header className="text-2xl">
+        <nav className="py-5 flex items-center container gap-28">
           <h1 className="font-bold text-5xl">Hekto</h1>
-
-          <div className="flex items-center grow justify-between">
-            
-            <ul className="flex gap-9">
+          <div className="flex grow justify-between items-center">
+            <ul className="flex gap-10">
               <li>
                 <a href="#">Home</a>
               </li>
@@ -36,14 +39,13 @@ export default function App() {
                 <a href="#">Products</a>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <a href="#">Cart</a>
               </li>
             </ul>
-
-            <form>
-              <input className="border-red-400 border-2" />
-              <button>
-                <IoMdSearch className="border-2 border-black p-4" />
+            <form className="flex">
+              <input className="border-2 border-r-0" />
+              <button className="border-2  bg-[#FB2E86] text-white p-3">
+                <CiSearch />
               </button>
             </form>
           </div>
