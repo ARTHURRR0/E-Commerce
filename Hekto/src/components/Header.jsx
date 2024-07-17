@@ -4,14 +4,15 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
+import { Link } from "react-router-dom";
 
-export default function App() {
+export default function Header() {
   return (
     <>
-{/* 1st HEADER */}
+      {/* 1st HEADER */}
 
-      <header className="bg-[#7E33E0] text-white text-2xl">
-        <nav className="container py-3 flex justify-between">
+      <header className="bg-primary text-2xl text-white">
+        <nav className="container py-3 flex flex-col md:flex-row items-center md:justify-between">
           <div className="flex gap-4 items-center">
             <MdEmail />
             <span>123@email.com</span>
@@ -26,25 +27,26 @@ export default function App() {
         </nav>
       </header>
 
-{/* 2nd HEADER */}
+      {/* 2nd HEADER */}
+
       <header className="text-2xl">
-        <nav className="py-5 flex items-center container gap-28">
+        <nav className="py-5 flex flex-col lg:flex-row items-center container lg:gap-28 gap-5">
           <h1 className="font-bold text-5xl">Hekto</h1>
-          <div className="flex grow justify-between items-center">
+          <div className="flex flex-col lg:flex-row grow justify-between items-center gap-3">
             <ul className="flex gap-10">
               <li>
-                <a href="#">Home</a>
+                <Link to="/" className="text-secondary">Home</Link>
               </li>
               <li>
-                <a href="#">Products</a>
+                <Link to="/products">Products</Link>
               </li>
               <li>
-                <a href="#">Cart</a>
+                <Link to="#">Cart</Link>
               </li>
             </ul>
             <form className="flex">
               <input className="border-2 border-r-0" />
-              <button className="border-2  bg-[#FB2E86] text-white p-3">
+              <button className="border-2  bg-secondary text-white p-3">
                 <CiSearch />
               </button>
             </form>
