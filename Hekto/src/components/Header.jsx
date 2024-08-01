@@ -4,9 +4,13 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CiSearch } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
 
 export default function Header() {
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   return (
     <>
       {/* 1st HEADER */}
@@ -31,14 +35,28 @@ export default function Header() {
 
       <header className="text-2xl">
         <nav className="py-5 flex flex-col lg:flex-row items-center container lg:gap-28 gap-5">
-          <h1 className="font-bold text-5xl">Hekto</h1>
+          <h1 className="font-bold text-5xl text-primary">Hekto</h1>
           <div className="flex flex-col lg:flex-row grow justify-between items-center gap-3">
             <ul className="flex gap-10">
               <li>
-                <Link to="/" className="text-secondary">Home</Link>
+                <Link
+                  to="/"
+                  className={`${
+                    pathname == "/" ? "text-secondary" : ""
+                  } hover:text-secondary`}
+                >
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/products">Products</Link>
+                <Link
+                  to="/products"
+                  className={`${
+                    pathname == "/products" ? "text-secondary" : ""
+                  } hover:text-secondary`}
+                >
+                  Products
+                </Link>
               </li>
               <li>
                 <Link to="#">Cart</Link>
@@ -52,7 +70,10 @@ export default function Header() {
             </form>
           </div>
         </nav>
+    
       </header>
+
+     
     </>
   );
 }

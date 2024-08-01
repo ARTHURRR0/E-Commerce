@@ -19,6 +19,10 @@ export default {
       'xl': '1200px',
       '2xl': '1400px',
     },
+    backgroundImage: {
+      'banner-1': "url('/images/banner1.png')",
+      'banner-2': "url('/images/banner2.png')",
+    }
   },
   plugins: [],
 }
