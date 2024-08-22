@@ -29,7 +29,7 @@ export default function Home() {
               <Skeleton height={458} />
             </>
           )} */}
-         <SingleProduct/>
+         {/* <SingleProduct/> */}
          <SingleProduct/>
          <SingleProduct/>
          <SingleProduct/>
