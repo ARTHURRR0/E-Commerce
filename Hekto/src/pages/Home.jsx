@@ -9,7 +9,26 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export default function Home() {
+  const [products, setProducts] = useState([]);
+  const [latestProducts, setLatestProducts] = useState([]);
 
+  useEffect(() => {
+    axios
+      .get("https://ecommerce-sagartmg2.vercel.app/api/products/trending")
+      .then((res) => {
+        setProducts(res.data.data);
+      });
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("https://ecommerce-sagartmg2.vercel.app/api/products")
+      .then((res) => {
+        // console.log();
+
+        setLatestProducts(res.data.products);
+      });
+  }, []);
 
   return (
     <>
@@ -21,24 +40,33 @@ export default function Home() {
       </section>
       <div className="container">
         <section className="container grid grid-cols-4 mt-40 gap-4 mb-10">
-          {/* {products.length === 0 && (
+          {products.length === 0 && (
             <>
               <Skeleton height={458} />
               <Skeleton height={458} />
               <Skeleton height={458} />
               <Skeleton height={458} />
             </>
-          )} */}
-         {/* <SingleProduct/> */}
-         <SingleProduct/>
-         <SingleProduct/>
-         <SingleProduct/>
+          )}
+          {products.map((product) => {
+            return <SingleProduct product={product} />;
+          })}
         </section>
         <p className="text-5xl font-bold text-center mb-14">Latest Products</p>
         <section className="grid grid-cols-3 gap-4">
-        <SingleProduct type="latest"/>
-        <SingleProduct type="latest"/>
-        <SingleProduct type="latest"/>
+          {products.length === 0 && (
+            <>
+              <Skeleton height={458} />
+              <Skeleton height={458} />
+              <Skeleton height={458} />
+              <Skeleton height={458} />
+            </>
+          )}
+          {latestProducts.map((product) => {
+            // console.log(product);
+            
+            return <SingleProduct product={product} type={"latest"}/>;
+          })}
         </section>
       </div>
     </>

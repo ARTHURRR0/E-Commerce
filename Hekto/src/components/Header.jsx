@@ -9,7 +9,6 @@ import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
   const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <>
@@ -24,7 +23,7 @@ export default function Header() {
             <span>977777283</span>
           </div>
           <div className="flex gap-4 items-center">
-            <span>Login</span>
+            <Link to="/login">Login</Link>
             <FaUser />
             <AiOutlineShoppingCart />
           </div>
