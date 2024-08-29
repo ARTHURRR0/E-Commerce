@@ -3,9 +3,15 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import unavailable from "/images/unavailable.jpg";
 import { toast } from "react-toastify";
 
-export default function SingleProduct({ type, product }) {
- let member = () => {
-  toast.error('You are not a member')
+export default function SingleProduct({ type, product, user }) {
+ let addToCart = () => {
+if (user) {
+  toast.sucess('Added to cart')
+  
+} else {
+  
+  toast.error('login required')
+}
  }
   return (
     <div
@@ -36,7 +42,7 @@ export default function SingleProduct({ type, product }) {
 
         <span 
         className="bg-slate-100 rounded-full p-4 text-primary absolute top-2 left-2 hidden group-hover:inline-block" 
-        onClick={member}
+        onClick={addToCart}
         >
           <AiOutlineShoppingCart className="text-2xl" />
         </span>

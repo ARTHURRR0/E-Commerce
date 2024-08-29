@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
  
 
 
-export default function Login() {
+export default function Login({setUser}) {
   let navigate = useNavigate()
   let handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +22,7 @@ export default function Login() {
       .then((res) => {
         toast.success("LoGIN Sucessfull");
         navigate('/')
+        setUser(res.data.user.name)
       })
       .catch((err) => {
         toast.error(err.response.data.msg)
@@ -46,12 +47,14 @@ export default function Login() {
               type="text"
               className="border border-gray-400 mx-auto w-full h-11"
               name="email"
+              value="arthur@arthur.com"
             />
 
             <input
               type="text"
               className="border border-gray-400 w-full h-11"
               name="password"
+              value="arthur12"
             />
 
             <p className="flex justify-start items-start w-full">

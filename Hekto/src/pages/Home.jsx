@@ -8,7 +8,7 @@ import CarouselItem from "../components/CarouselItem";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-export default function Home() {
+export default function Home({user}) {
   const [products, setProducts] = useState([]);
   const [latestProducts, setLatestProducts] = useState([]);
 
@@ -65,7 +65,7 @@ export default function Home() {
           {latestProducts.map((product) => {
             // console.log(product);
             
-            return <SingleProduct product={product} type={"latest"}/>;
+            return <SingleProduct product={product} user={user} type={"latest"}/>;
           })}
         </section>
       </div>
